@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>jQuery UI Droppable - Default functionality</title>
+      <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
+      <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+      <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+<script>
+$(document).ready(function(){
+
+for(var i=0;i<10;i++)
+
+{
+    
+          $('<div/>',{id:'dropDiv_'+i,class:'dropDiv'}).appendTo('.Container');
+          $('<div/>',{id:'dragDiv_'+i,class:'dragDiv'}).appendTo('#dropDiv_'+i).text(i); 
+		  $( '#dragDiv_'+i ).draggable(function( event, ui ) {
+         var dragElem =$(this);
+		  }); 
+		
+		  $( '#dropDiv_'+i ).droppable({
+          drop: function( event, ui ) {
+		  var dropelem=$(this);
+	         dropelem.children().appendTo(dragElem).css({top:'0px',left:'0px'});
+			 dragElem.parent().appendTo(dropelem).css({top:'0px',left:'0px'}); 
+			
+          }
+
+		  });
+ }
+
+ 
+
+
+});
+
+</script>
+
+<style>
+.Container
+{
+   background:#ccc;
+   position:absolute;
+   margin:auto;
+   height:600px;
+   width:1000px;
+   top:0px;
+   right:0px;
+   left:0px;
+
+}
+.dropDiv {
+    background: yellow;
+    float: left;
+    height: 100px;
+    margin-left: 68px;
+    margin-top: 50px;
+    width: 100px;
+}
+
+.dragDiv
+{
+    background: green;
+    float: left;
+    height: 50px;
+    margin-left: 25px;
+    margin-top: 25px;
+    width: 50px;
+	opacity:0.5;
+}
+</style>
+</head>
+<body>
+    <div class="Container">
+      <div>
+</body>
+</html>

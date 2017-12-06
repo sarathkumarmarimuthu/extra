@@ -1,0 +1,72 @@
+<html>
+<head>
+<script src="jquery-1.12.2.min.js"></script>
+<script src="jquery-ui.min.js"></script>
+
+<script>
+var spriteaniinr = 0;
+var speedSprite=50;
+var getw, geth;
+var count=0;
+var act_img=[	
+				//width, height, column, row
+				[1128,1544,4,8]
+				//[1410,386,5,2]
+				
+			];
+
+var timervar;
+var spriteaniinr_c=["",5,15,20,30]
+getw = act_img[0][0]/act_img[0][2];
+geth = act_img[0][1]/act_img[0][3];
+$(document).ready(function(){
+})
+var startResistNewAnim_act = function()
+	{	
+		spriteaniinr++;
+		console.log(spriteaniinr)
+		//console.log(spriteaniinr)
+	$(".main_sprite").css('background-position-x',(spriteaniinr%act_img[0][2])*getw*-1);
+	//console.log((spriteaniinr%act_img[0][2])*getw*-1,Math.floor(spriteaniinr/act_img[0][2])*geth*-1)
+	
+	$(".main_sprite").css('background-position-y',Math.floor(spriteaniinr/act_img[0][2])*geth*-1);		
+	timervar = setTimeout(startResistNewAnim_act,speedSprite);
+	
+	if(spriteaniinr==spriteaniinr_c[count])
+	{
+	
+	clearTimeout(timervar);
+				
+				spriteaniinr = 0;
+	}	
+
+	}
+  function btn1()
+  {
+  count++;
+  console.log(count)
+   if(count==1){spriteaniinr=0;   }
+   if(count==2){spriteaniinr=5;}
+   if(count==3){spriteaniinr=15}
+   if(count==4){spriteaniinr=25;}
+   
+   startResistNewAnim_act();
+  
+  }
+	</script>
+<style>
+.main_sprite {
+     height: 193px;
+    width: 282px;
+    top: 69px;
+    left: 215px;
+    background: url(connector_removal_sprite.png);
+    
+}
+</style>
+</head>
+<body>
+	<div class = "main_sprite"></div>
+	<button onclick="btn1()" style="top:300px">click</button>
+</body>
+</html>

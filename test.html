@@ -1,0 +1,69 @@
+<html>
+<script>
+var a = "  A  abc  d   e    A  ";
+console.log(a)
+console.log(a.replace(/\s\s+/g, ' '));
+var animal = Object.create(null);
+animal.name='sarath';
+animal.gender='male';
+var cat = Object.create(animal);
+var dog= Object.create(cat);
+
+dog.name='prem';
+function  base(name){
+	this.name=name;
+	this.color='white';
+}
+base.prototype.cls=function(){console.log('base class');}
+function child(n){
+	this.name=n;
+}
+/*child.prototype = new base('prem');
+
+var obj = new child('raj');*/var ob= new base('raaa');
+var obj = new child('raj')
+console.log(ob.cls());
+var ooo = Object.create(null);
+ooo.name='prem';
+var xxx= Object.create(ooo);
+xxx.name='raj';
+xxx = {
+'last':'rajm',
+'middle':'sarath'
+}
+console.log(xxx.last);
+var myCons = function(a,b,c){
+console.log(a+' '+b+' '+c);
+}
+p=[];
+myCons.call(null,5,6);
+myCons.apply(null,[5,6,7]);
+
+
+var zaphod = {name: 'Zaphod', age: 42};
+var marvin = {name: 'Marvin', age: 420000000000};
+
+zaphod.sayHello = function(){
+  return "Hi, I'm " + this.name;
+}
+marvin.sayHello = zaphod.sayHello;
+console.log(marvin.sayHello());
+
+var str='01234567';
+for(i=5;i>0;i--)
+{
+	for(j=0;j<i;j++){
+			document.write('&nbsp;');
+		}
+		
+		for(k=1;k<=6-i;k++){
+			document.write('* ');
+		}
+		document.write('<br>');
+	
+}	
+
+</script>
+<body>
+</body>
+</html>

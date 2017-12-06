@@ -1,0 +1,7 @@
+@media screen and (-webkit-min-device-pixel-ratio:0) { 
+/* Safari and Chrome */
+}
+
+@media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+/* IE 10 and 11+ */
+}
